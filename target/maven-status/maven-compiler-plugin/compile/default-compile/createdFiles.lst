@@ -1,0 +1,16 @@
+by\it\academy\controllers\AuthenticationServlet.class
+by\it\academy\controllers\LogoutServlet.class
+by\it\academy\controllers\CreateServlet.class
+by\it\academy\filters\AuthorizationFilter.class
+by\it\academy\entities\User.class
+by\it\academy\database\ConnectorDB.class
+JPA\entity\Message.class
+by\it\academy\controllers\ServletReadProducts.class
+JPA\util\JPAUtil.class
+by\it\academy\controllers\ServletReadUsers.class
+by\it\academy\controllers\ServletDeleteUser.class
+by\it\academy\controllers\ServletCreatProduct.class
+JPA\client\HelloWorldClient.class
+by\it\academy\entities\UserType.class
+by\it\academy\controllers\ServletDeleteProduct.class
+by\it\academy\entities\Product.class
