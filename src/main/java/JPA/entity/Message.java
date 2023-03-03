@@ -3,9 +3,11 @@ package JPA.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+
+
 @Data
 @Entity
-@Table(name = "MESSAGE")
+@Table(name = "MESSAGE", schema = "public")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -15,7 +15,10 @@ public class HelloWorldClient {
         entityManager.getTransaction().begin();
 
         Message message = new Message("Hello world with JPA!");
+        Message message1 = new Message("Hi mozur!");
+
         entityManager.persist(message);
+        entityManager.persist(message1);
         entityManager.getTransaction().commit();
         entityManager.close();
     }

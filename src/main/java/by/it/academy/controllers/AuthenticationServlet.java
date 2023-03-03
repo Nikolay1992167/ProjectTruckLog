@@ -4,6 +4,7 @@ import by.it.academy.database.ConnectorDB;
 import by.it.academy.entities.UserType;
 import lombok.SneakyThrows;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
