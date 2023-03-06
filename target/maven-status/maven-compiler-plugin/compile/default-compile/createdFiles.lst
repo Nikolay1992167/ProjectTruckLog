@@ -13,6 +13,7 @@ by\it\academy\controllers\DeleteUserServlet.class
 by\it\academy\services\ValidationInServletService$1.class
 by\it\academy\services\ValidationInServletService.class
 by\it\academy\controllers\ReadUsersServlet.class
+by\it\academy\controllers\UpdateProductServlet.class
 by\it\academy\database\ConnectionPool.class
 by\it\academy\services\ProductService.class
 by\it\academy\entities\UserType.class

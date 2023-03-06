@@ -18,5 +18,6 @@ E:\Обучение IT Academy\ProjectEnteprise\Truck\src\main\java\by\it\academy\contro
 E:\Обучение IT Academy\ProjectEnteprise\Truck\src\main\java\by\it\academy\dao\ProductDAO.java
 E:\Обучение IT Academy\ProjectEnteprise\Truck\src\main\java\by\it\academy\database\ConnectionPool.java
 E:\Обучение IT Academy\ProjectEnteprise\Truck\src\main\java\by\it\academy\services\ValidationInServletService.java
+E:\Обучение IT Academy\ProjectEnteprise\Truck\src\main\java\by\it\academy\controllers\UpdateProductServlet.java
 E:\Обучение IT Academy\ProjectEnteprise\Truck\src\main\java\by\it\academy\controllers\UpdateUserServlet.java
 E:\Обучение IT Academy\ProjectEnteprise\Truck\src\main\java\by\it\academy\controllers\DeleteProductServlet.java
