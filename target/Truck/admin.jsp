@@ -101,12 +101,40 @@
            </table>
        </div>
         <p></p>
-        <h3>Remove user from database</h3>
+        <h3>Remove user in database</h3>
         <form action="/delete_user" method="post">
             <input type="text" name="id" placeholder="Put your id">
             <input type="submit" value="Remove">
         </form>
-        <p></p>
+        <h3>Update user in database</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name Company</th>
+                <th>Location adresse</th>
+                <th>Email</th>
+                <th>User name</th>
+                <th>Password user</th>
+                <th>User type</th>
+            </tr>
+            </thead>
+            <tbody>
+            <form action="/update" method="post">
+                <tr>
+                <input type="text" name="id" placeholder="Put ID">
+                <input type="text" name="nameCompany" placeholder="Put name company">
+                <input type="text" name="location" placeholder="Put location">
+                <input type="text" name="email" placeholder="Put email">
+                <input type="text" name="userName" placeholder="Put user name">
+                <input type="text" name="password"  placeholder="Put password">
+                <input type="text" name="userType"   placeholder="Put user type">
+                <input type="submit" value="Update">
+                </tr>
+            </form>
+            </tbody>
+        </table>
+
         <h3>Product List</h3>
         <div>
             <%@include file="productslist.jsp" %>
@@ -116,7 +144,7 @@
             <%@include file="addproduct.jsp" %>
         </div>
         <div>
-            <h3>Remove a product from the list</h3>
+            <h3>Remove a product in the list</h3>
             <%@include file="deleteproduct.jsp" %>
         </div>
         <div class="agile_back_home">

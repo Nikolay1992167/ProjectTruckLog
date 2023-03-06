@@ -1,0 +1,942 @@
+Index: target/Truck/admin.jsp
+===================================================================
+diff --git a/target/Truck/admin.jsp b/target/Truck/admin.jsp
+deleted file mode 100644
+--- a/target/Truck/admin.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,128 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" isELIgnored="false" %>
+-<%@ taglib prefix="cor" uri="http://java.sun.com/jsp/jstl/core" %>
+-<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+-<html>
+-<head>
+-    <title> admin page | functions</title>
+-    <meta name="viewport" content="width=device-width, initial-scale=1">
+-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+-    <script type="application/x-javascript"> addEventListener("load", function () {
+-        setTimeout(hideURLbar, 0);
+-    }, false);
+-    function hideURLbar() {
+-        window.scrollTo(0, 1);
+-    } </script>
+-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+-    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
+-          rel='stylesheet' type='text/css'>
+-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+-          rel='stylesheet' type='text/css'>
+-    <style type="text/css">
+-        TABLE {
+-            width: 1200px;
+-            border: 2px solid black;
+-            background: silver;
+-        }
+-        TD, TH {
+-            text-align: center;
+-            padding: 3px;
+-        }
+-        TH {
+-            background: #4682b4;
+-            color: white;
+-            border-bottom: 2px solid black;
+-        }
+-        h2 {
+-            margin-bottom: 30px;
+-        }
+-        h3 {
+-            margin-top: 30px;
+-        }
+-    </style>
+-</head>
+-<body>
+-<div class="logo_nav">
+-    <div class="container">
+-        <nav class="navbar navbar-default">
+-            <div class="navbar-header">
+-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+-                        data-target="#bs-example-navbar-collapse-1">
+-                    <span class="sr-only">Toggle navigation</span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                </button>
+-                <div class="logo">
+-                    <h1><a class="navbar-brand" href="index.jsp">Truc<span>k</span>age & Logi<span>s</span>tic</a></h1>
+-                </div>
+-            </div>
+-            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+-                <nav class="link-effect-2" id="link-effect-2">
+-                    <ul class="nav navbar-nav">
+-                        <li><a href="services.jsp"><span data-hover="Services">Services</span></a></li>
+-                        <li><a href="about.jsp"><span data-hover="About">About</span></a></li>
+-                        <li><a href="mail.jsp"><span data-hover="Mail Us">Mail Us</span></a></li>
+-                    </ul>
+-                </nav>
+-            </div>
+-        </nav>
+-    </div>
+-</div>
+-<div class="products">
+-    <div class="container">
+-        <h2>Welcome! </h2>
+-        <p></p>
+-        <h3>List of users</h3>
+-       <div>
+-           <table>
+-               <tr>
+-                   <th>ID</th>
+-                   <th>Name Company</th>
+-                   <th>Location adresse</th>
+-                   <th>email</th>
+-                   <th>User name</th>
+-                   <th>Password user</th>
+-                   <th>User type</th>
+-               </tr>
+-               <cor:forEach var="user" items="${users}">
+-                   <tr>
+-                       <td>${user.id}</td>
+-                       <td>${user.nameCompany}</td>
+-                       <td>${user.location}</td>
+-                       <td>${user.email}</td>
+-                       <td>${user.userName}</td>
+-                       <td>${user.password}</td>
+-                       <td>${user.userType}</td>
+-                   </tr>
+-               </cor:forEach>
+-           </table>
+-       </div>
+-        <p></p>
+-        <h3>Remove user from database</h3>
+-        <form action="/delete_user" method="post">
+-            <input type="text" name="id" placeholder="Put your id">
+-            <input type="submit" value="Remove">
+-        </form>
+-        <p></p>
+-        <h3>Product List</h3>
+-        <div>
+-            <%@include file="productslist.jsp" %>
+-        </div>
+-        <div>
+-            <h3>Add product</h3>
+-            <%@include file="addproduct.jsp" %>
+-        </div>
+-        <div>
+-            <h3>Remove a product from the list</h3>
+-            <%@include file="deleteproduct.jsp" %>
+-        </div>
+-        <div class="agile_back_home">
+-            <a href="index.jsp">Back to home</a>
+-        </div>
+-    </div>
+-</div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: target/maven-archiver/pom.properties
+===================================================================
+diff --git a/target/maven-archiver/pom.properties b/target/maven-archiver/pom.properties
+deleted file mode 100644
+--- a/target/maven-archiver/pom.properties	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,4 +0,0 @@
+-#Created by Apache Maven 3.8.6
+-groupId=org.example
+-artifactId=Truck
+-version=1.0-SNAPSHOT
+Index: target/Truck/supplier.jsp
+===================================================================
+diff --git a/target/Truck/supplier.jsp b/target/Truck/supplier.jsp
+deleted file mode 100644
+--- a/target/Truck/supplier.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,97 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+-<%@ taglib prefix="cor" uri="http://java.sun.com/jsp/jstl/core" %>
+-<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+-
+-<html>
+-<head>
+-    <title> supplier page | functions</title>
+-    <meta name="viewport" content="width=device-width, initial-scale=1">
+-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+-    <script type="application/x-javascript"> addEventListener("load", function () {
+-        setTimeout(hideURLbar, 0);
+-    }, false);
+-
+-    function hideURLbar() {
+-        window.scrollTo(0, 1);
+-    } </script>
+-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+-    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
+-          rel='stylesheet' type='text/css'>
+-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+-          rel='stylesheet' type='text/css'>
+-    <style type="text/css">
+-        TABLE {
+-            width: 1200px;
+-            border: 2px solid black;
+-            background: silver;
+-        }
+-        TD, TH {
+-            text-align: center;
+-            padding: 3px;
+-        }
+-        TH {
+-            background: #4682b4;
+-            color: white;
+-            border-bottom: 2px solid black;
+-        }
+-        h2 {
+-            margin-bottom: 30px;
+-        }
+-        h3 {
+-            margin-top: 30px;
+-        }
+-    </style>
+-</head>
+-<body>
+-<div class="logo_nav">
+-    <div class="container">
+-        <nav class="navbar navbar-default">
+-            <div class="navbar-header">
+-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+-                        data-target="#bs-example-navbar-collapse-1">
+-                    <span class="sr-only">Toggle navigation</span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                </button>
+-                <div class="logo">
+-                    <h1><a class="navbar-brand" href="index.jsp">Truc<span>k</span>age & Logi<span>s</span>tic</a></h1>
+-                </div>
+-            </div>
+-            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+-                <nav class="link-effect-2" id="link-effect-2">
+-                    <ul class="nav navbar-nav">
+-                        <li><a href="about.jsp"><span data-hover="About">About</span></a></li>
+-                        <li><a href="services.jsp"><span data-hover="Services">Services</span></a></li>
+-                        <li><a href="mail.jsp"><span data-hover="Mail Us">Mail Us</span></a></li>
+-                    </ul>
+-                </nav>
+-            </div>
+-        </nav>
+-    </div>
+-</div>
+-<div class="products">
+-    <div class="container">
+-        <h2>Welcome! We are glad to cooperate with you.</h2>
+-        <div>
+-            <h3>Product List</h3>
+-            <%@include file="productslist.jsp" %>
+-        </div>
+-        <div>
+-            <h3>Add product</h3>
+-            <%@include file="addproduct.jsp" %>
+-        </div>
+-        <div>
+-            <h3>Remove a product from the list</h3>
+-            <%@include file="deleteproduct.jsp" %>
+-        </div>
+-    </div>
+-    <div class="agile_back_home">
+-        <a href="index.jsp">back to home</a>
+-    </div>
+-</div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: target/Truck/404.jsp
+===================================================================
+diff --git a/target/Truck/404.jsp b/target/Truck/404.jsp
+deleted file mode 100644
+--- a/target/Truck/404.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,128 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" %>
+-<!DOCTYPE HTML>
+-<html>
+-<head>
+-    <title>page 404</title>
+-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+-    <link href='//fonts.googleapis.com/css?family=Capriola' rel='stylesheet' type='text/css'>
+-    <style type="text/css">
+-        body{
+-            font-family: 'Capriola', sans-serif;
+-        }
+-        body{
+-            background:#DAD6CC;
+-        }
+-        .wrap{
+-            margin:0 auto;
+-            width:1000px;
+-        }
+-        .logo h1{
+-            font-size:200px;
+-            color:#FF7A00;
+-            text-align:center;
+-            margin-bottom:1px;
+-            text-shadow:4px 4px 1px white;
+-        }
+-        .logo p{
+-            color:#B1A18D;
+-            font-size:20px;
+-            margin-top:1px;
+-            text-align:center;
+-        }
+-        .logo p span{
+-            color:lightgreen;
+-        }
+-        .sub a{
+-            color:#ff7a00;
+-            text-decoration:none;
+-            padding:5px;
+-            font-size:13px;
+-            font-family: arial, serif;
+-            font-weight:bold;
+-        }
+-        .footer a{
+-            color:#ff7a00;
+-        }
+-
+-        @media (max-width:1024px) {
+-            .logo h1 {
+-                font-size: 170px;
+-                margin-top: 140px
+-            }
+-            .wrap {
+-                width:100%;
+-            }
+-        }
+-
+-        @media (max-width: 991px) {
+-            .logo h1 {
+-                font-size: 150px;
+-            }
+-        }
+-
+-        @media (max-width: 768px) {
+-            body {
+-                display:-webkit-flex;
+-                display:flex;
+-                align-items: center;
+-                justify-content: center;
+-                height: 100vh;
+-                padding: 0;
+-                margin: 0;
+-            }
+-            .logo h1 {
+-                margin-top: 0px
+-            }
+-        }
+-        @media (max-width: 736px) {
+-            .logo h1 {
+-                font-size: 120px;
+-            }
+-        }
+-
+-        @media (max-width: 600px) {
+-            .logo h1 {
+-                font-size: 100px;
+-            }
+-        }
+-
+-        @media (max-width: 568px) {
+-            .logo p {
+-                font-size:15px;
+-                margin-bottom:5px;
+-                margin-top:1px;
+-            }
+-        }
+-
+-        @media (max-width: 480px) {
+-            .logo p {
+-                margin-bottom:10px;
+-            }
+-        }
+-
+-        @media (max-width: 384px) {
+-        }
+-
+-        @media (max-width: 320px) {
+-            .logo h1 {
+-                font-size: 90px;
+-            }
+-            .logo p {
+-                font-size: 14px;
+-                margin-top:10px;
+-                margin-bottom:15px;
+-            }
+-        }
+-    </style>
+-</head>
+-<body>
+-<div class="wrap">
+-    <div class="logo">
+-        <h1>404</h1>
+-        <p> Sorry! Something went wrong!</p>
+-        <div class="sub">
+-            <p><a href="index.jsp">Back to home</a></p>
+-        </div>
+-    </div>
+-</div>
+-</body>
+Index: target/Truck/login.jsp
+===================================================================
+diff --git a/target/Truck/login.jsp b/target/Truck/login.jsp
+deleted file mode 100644
+--- a/target/Truck/login.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,102 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-<%@ taglib prefix="cor" uri="http://java.sun.com/jsp/jstl/core" %>
+-<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+-<!DOCTYPE html>
+-<html>
+-<head>
+-    <title>Truckage and Logistic | Login</title>
+-    <meta name="viewport" content="width=device-width, initial-scale=1">
+-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+-    <meta name="keywords" content="Truckage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+-    function hideURLbar(){ window.scrollTo(0,1); } </script>
+-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+-    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+-</head>
+-<body>
+-<div class="logo_nav">
+-    <div class="container">
+-        <nav class="navbar navbar-default">
+-            <div class="navbar-header">
+-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+-                    <span class="sr-only">Toggle navigation</span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                </button>
+-                <div class="logo">
+-                    <h1><a class="navbar-brand" href="index.jsp">Truc<span>k</span>age & Logi<span>s</span>tic</a></h1>
+-                </div>
+-            </div>
+-            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+-                <nav class="link-effect-2" id="link-effect-2">
+-                    <ul class="nav navbar-nav">
+-                        <li><a href="about.jsp"><span data-hover="About">About</span></a></li>
+-                        <li><a href="services.jsp"><span data-hover="Services">Services</span></a></li>
+-                        <li><a href="mail.jsp"><span data-hover="Mail Us">Mail Us</span></a></li>
+-                    </ul>
+-                </nav>
+-            </div>
+-        </nav>
+-    </div>
+-</div>
+-<div class="banner1">
+-    <div class="container">
+-    </div>
+-</div>
+-
+-<div class="login">
+-    <div class="container">
+-        <h6>Login</h6>
+-        <h3>Welcome to our Company. Please enter your
+-            <a href="login.jsp">Login</a> details to login here. Or <a href="sign_up.jsp">
+-                Register</a> here.</h3>
+-        <form action="/authorize" method="post">
+-            <td><input type="text" name="userName" placeholder="Put your User Name"></td>
+-            <td><input type="password" class="lock" name="password" placeholder="Put your Password"></td>
+-            <input type="submit" value="Login">
+-        </form>
+-        <div class="agile_back_home">
+-            <a href="index.jsp">Back to home</a>
+-        </div>
+-    </div>
+-</div>
+-<div class="agileinfo_copy_right">
+-    <div class="container">
+-        <div class="agileinfo_copy_right_left">
+-            <p>© 2023 Truckage and Logistic. All rights reserved | Developed by Nikolai Minich.</p>
+-        </div>
+-        <div class="agileinfo_copy_right_right">
+-            <ul class="social">
+-                <li><a class="social-linkedin" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Facebook</span></div>
+-                </a></li>
+-                <li><a class="social-twitter" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Twitter</span></div>
+-                </a></li>
+-                <li><a class="social-google" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Google+</span></div>
+-                </a></li>
+-                <li><a class="social-facebook" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Pinterest</span></div>
+-                </a></li>
+-                <li><a class="social-instagram" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Instagram</span></div>
+-                </a></li>
+-            </ul>
+-        </div>
+-        <div class="clearfix"> </div>
+-    </div>
+-</div>
+-</body>
+-</html>
+-
+Index: target/Truck/productslist.jsp
+===================================================================
+diff --git a/target/Truck/productslist.jsp b/target/Truck/productslist.jsp
+deleted file mode 100644
+--- a/target/Truck/productslist.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,28 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-<%@ taglib prefix="cor" uri="http://java.sun.com/jsp/jstl/core" %>
+-<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+-<html>
+-<head>
+-    <title>products list</title>
+-</head>
+-<body>
+-<table>
+-    <tr>
+-        <th>Product ID</th>
+-        <th>Weight</th>
+-        <th>Loading location</th>
+-        <th>Unloading location</th>
+-        <th>Cargo cost</th>
+-    </tr>
+-    <cor:forEach var="product" items="${products}">
+-        <tr>
+-            <td>${product.id}</td>
+-            <td>${product.weight}</td>
+-            <td>${product.loading_location}</td>
+-            <td>${product.unloading_location}</td>
+-            <td>${product.cargo_cost}</td>
+-        </tr>
+-    </cor:forEach>
+-</table>
+-</body>
+-</html>
+Index: target/Truck/addproduct.jsp
+===================================================================
+diff --git a/target/Truck/addproduct.jsp b/target/Truck/addproduct.jsp
+deleted file mode 100644
+--- a/target/Truck/addproduct.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,29 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-<html>
+-<head>
+-    <title>add product</title>
+-</head>
+-<body>
+-<table>
+-    <thead>
+-    <tr>
+-        <th>Weight</th>
+-        <th>Loading location</th>
+-        <th>Unloading location</th>
+-        <th>Cargo cost</th>
+-    </tr>
+-    </thead>
+-    <tbody>
+-    <form action="/creat_product" method="post">
+-        <tr>
+-            <td><input type="text" name="weight" placeholder="Put your weight"></td>
+-            <td><input type="text" name="loading_location" placeholder="Put your loading location"></td>
+-            <td><input type="text" name="unloading_location" placeholder="Put your unloading location"></td>
+-            <td><input type="text" name="cargo_cost" placeholder="Put your cargo cost"></td>
+-            <td><input type="submit" value="Add"></td>
+-        </tr>
+-    </form>
+-    </tbody>
+-</table>
+-</body>
+-</html>
+Index: target/Truck/sign_up.jsp
+===================================================================
+diff --git a/target/Truck/sign_up.jsp b/target/Truck/sign_up.jsp
+deleted file mode 100644
+--- a/target/Truck/sign_up.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,108 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-<%@ taglib prefix="cor" uri="http://java.sun.com/jsp/jstl/core" %>
+-<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+-<!DOCTYPE html>
+-<html>
+-<head>
+-    <title> Truckage and Logistic | Sign Up</title>
+-    <meta name="viewport" content="width=device-width, initial-scale=1">
+-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+-    <meta name="keywords" content="Truckage Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+-    function hideURLbar(){ window.scrollTo(0,1); } </script>
+-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+-    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+-</head>
+-
+-<body>
+-<div class="logo_nav">
+-    <div class="container">
+-        <nav class="navbar navbar-default">
+-            <div class="navbar-header">
+-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+-                    <span class="sr-only">Toggle navigation</span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                </button>
+-                <div class="logo">
+-                    <h1><a class="navbar-brand" href="index.jsp">Truc<span>k</span>age & Logi<span>s</span>tic</a></h1>
+-                </div>
+-            </div>
+-            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+-                <nav class="link-effect-2" id="link-effect-2">
+-                    <ul class="nav navbar-nav">
+-                        <li><a href="about.jsp"><span data-hover="About">About</span></a></li>
+-                        <li><a href="services.jsp"><span data-hover="Services">Services</span></a></li>
+-                        <li><a href="mail.jsp"><span data-hover="Mail Us">Mail Us</span></a></li>
+-                    </ul>
+-                </nav>
+-            </div>
+-
+-        </nav>
+-    </div>
+-</div>
+-<div class="banner1">
+-    <div class="container">
+-    </div>
+-</div>
+-
+-<div class="login">
+-    <div class="container">
+-        <h6>Sign Up</h6>
+-        <h3>Welcome to our Company.Please enter your Registration details.</h3>
+-        <form action="/create" method="post">
+-            <input type="text" name="nameCompany" placeholder="Put your name company">
+-            <input type="text" name="location" placeholder="Put your location">
+-            <input type="text" name="email" placeholder="Put your email">
+-            <input type="text" name="userName" placeholder="Put your user name">
+-            <input type="text" name="password"  placeholder="Put your password">
+-            <input type="text" name="userType"   placeholder="Put your user type">
+-            <input type="submit" value="Sign Up">
+-        </form>
+-        <div class="agile_back_home">
+-            <a href="index.jsp">Back to home</a>
+-        </div>
+-    </div>
+-</div>
+-
+-
+-<div class="agileinfo_copy_right">
+-    <div class="container">
+-        <div class="agileinfo_copy_right_left">
+-            <p>© 2023 Truckage and Logistic. All rights reserved | Developed by Nikolai Minich.</p>
+-        </div>
+-        <div class="agileinfo_copy_right_right">
+-            <ul class="social">
+-                <li><a class="social-linkedin" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Facebook</span></div>
+-                </a></li>
+-                <li><a class="social-twitter" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Twitter</span></div>
+-                </a></li>
+-                <li><a class="social-google" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Google+</span></div>
+-                </a></li>
+-                <li><a class="social-facebook" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Pinterest</span></div>
+-                </a></li>
+-                <li><a class="social-instagram" href="#">
+-                    <i></i>
+-                    <div class="tooltip"><span>Instagram</span></div>
+-                </a></li>
+-            </ul>
+-        </div>
+-        <div class="clearfix"> </div>
+-    </div>
+-</div>
+-</body>
+-</html>
+-
+Index: target/Truck/deleteproduct.jsp
+===================================================================
+diff --git a/target/Truck/deleteproduct.jsp b/target/Truck/deleteproduct.jsp
+deleted file mode 100644
+--- a/target/Truck/deleteproduct.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,12 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-<html>
+-<head>
+-    <title>delete product</title>
+-</head>
+-<body>
+-<form action="/delete_product" method="post">
+-    <input type="text" name="id" placeholder="Put your id">
+-    <input type="submit" value="Reservation">
+-</form>
+-</body>
+-</html>
+Index: target/Truck/carrier.jsp
+===================================================================
+diff --git a/target/Truck/carrier.jsp b/target/Truck/carrier.jsp
+deleted file mode 100644
+--- a/target/Truck/carrier.jsp	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ /dev/null	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
+@@ -1,88 +0,0 @@
+-<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+-<%@ taglib prefix="cor" uri="http://java.sun.com/jsp/jstl/core" %>
+-<%@ taglib prefix="sql" uri="http://java.sun.com/jstl/sql" %>
+-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+-<html>
+-<head>
+-    <title> carrier page | functions</title>
+-    <meta name="viewport" content="width=device-width, initial-scale=1">
+-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+-    <script type="application/x-javascript"> addEventListener("load", function () {
+-        setTimeout(hideURLbar, 0);
+-    }, false);
+-    function hideURLbar() {
+-        window.scrollTo(0, 1);
+-    } </script>
+-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+-    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
+-          rel='stylesheet' type='text/css'>
+-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+-          rel='stylesheet' type='text/css'>
+-    <style type="text/css">
+-        TABLE {
+-            width: 1200px;
+-            border: 2px solid black;
+-            background: silver;
+-        }
+-        TD, TH {
+-            text-align: center;
+-            padding: 3px;
+-        }
+-        TH {
+-            background: #4682b4;
+-            color: white;
+-            border-bottom: 2px solid black;
+-        }
+-        h2 {
+-            margin-bottom: 30px;
+-        }
+-        h3 {
+-            margin-top: 30px;
+-        }
+-    </style>
+-</head>
+-
+-<body>
+-<div class="logo_nav">
+-    <div class="container">
+-        <nav class="navbar navbar-default">
+-            <div class="navbar-header">
+-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+-                        data-target="#bs-example-navbar-collapse-1">
+-                    <span class="sr-only">Toggle navigation</span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                    <span class="icon-bar"></span>
+-                </button>
+-                <div class="logo">
+-                    <h1><a class="navbar-brand" href="index.jsp">Truc<span>k</span>age & Logi<span>s</span>tic</a></h1>
+-                </div>
+-            </div>
+-            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+-                <nav class="link-effect-2" id="link-effect-2">
+-                    <ul class="nav navbar-nav">
+-                        <li><a href="services.jsp"><span data-hover="Services">Services</span></a></li>
+-                        <li><a href="about.jsp"><span data-hover="About">About</span></a></li>
+-                        <li><a href="mail.jsp"><span data-hover="Mail Us">Mail Us</span></a></li>
+-                    </ul>
+-                </nav>
+-            </div>
+-        </nav>
+-    </div>
+-</div>
+-<div class="products">
+-    <div class="container">
+-        <h2>Welcome! We are glad to cooperate with you.</h2>
+-        <h3>Product List</h3>
+-        <%@include file="productslist.jsp" %>
+-        <h3>Reserve an item</h3>
+-        <%@include file="deleteproduct.jsp" %>
+-        <div class="agile_back_home">
+-            <a href="index.jsp">back to home</a>
+-        </div>
+-    </div>
+-</div>
+-</body>
+-</html>
+\ No newline at end of file
+Index: Truck.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" type=\"JAVA_MODULE\" version=\"4\">\r\n  <component name=\"FacetManager\">\r\n    <facet type=\"web\" name=\"Web\">\r\n      <configuration>\r\n        <descriptors>\r\n          <deploymentDescriptor name=\"web.xml\" url=\"file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml\" />\r\n        </descriptors>\r\n        <webroots>\r\n          <root url=\"file://$MODULE_DIR$/src/main/webapp\" relative=\"/\" />\r\n        </webroots>\r\n      </configuration>\r\n    </facet>\r\n    <facet type=\"jpa\" name=\"JPA\">\r\n      <configuration>\r\n        <setting name=\"validation-enabled\" value=\"true\" />\r\n        <setting name=\"provider-name\" value=\"Hibernate\" />\r\n        <datasource-mapping>\r\n          <factory-entry name=\"Truck\" />\r\n        </datasource-mapping>\r\n        <naming-strategy-map />\r\n        <deploymentDescriptor name=\"persistence.xml\" url=\"file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml\" />\r\n      </configuration>\r\n    </facet>\r\n  </component>\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_1_9\">\r\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/java\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/resources\" type=\"java-resource\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: junit:junit:4.11\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.hamcrest:hamcrest-core:1.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"PROVIDED\" name=\"Maven: javax.servlet:servlet-api:2.5\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"PROVIDED\" name=\"Maven: javax:javaee-api:8.0.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"PROVIDED\" name=\"Maven: com.sun.mail:javax.mail:1.6.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"PROVIDED\" name=\"Maven: javax.activation:activation:1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"PROVIDED\" name=\"Maven: org.projectlombok:lombok:1.18.24\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.servlet:jstl:1.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: log4j:log4j:1.2.17\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"PROVIDED\" name=\"Maven: javax.servlet.jsp:javax.servlet.jsp-api:2.3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.postgresql:postgresql:42.5.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: org.checkerframework:checker-qual:3.5.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: postgresql:postgresql:9.1-901-1.jdbc4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: jstl:jstl:1.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: taglibs:standard:1.1.2\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Truck.iml b/Truck.iml
+--- a/Truck.iml	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ b/Truck.iml	(date 1677773782270)
+@@ -1,28 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+-  <component name="FacetManager">
+-    <facet type="web" name="Web">
+-      <configuration>
+-        <descriptors>
+-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
+-        </descriptors>
+-        <webroots>
+-          <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
+-        </webroots>
+-      </configuration>
+-    </facet>
+-    <facet type="jpa" name="JPA">
+-      <configuration>
+-        <setting name="validation-enabled" value="true" />
+-        <setting name="provider-name" value="Hibernate" />
+-        <datasource-mapping>
+-          <factory-entry name="Truck" />
+-        </datasource-mapping>
+-        <naming-strategy-map />
+-        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
+-      </configuration>
+-    </facet>
+-  </component>
+   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_9">
+     <output url="file://$MODULE_DIR$/target/classes" />
+     <output-test url="file://$MODULE_DIR$/target/test-classes" />
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ArtifactsWorkspaceSettings\">\r\n    <artifacts-to-build>\r\n      <artifact name=\"Truck:war\" />\r\n    </artifacts-to-build>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"56f8975f-b76d-4f33-a9b5-cf8f336b83d0\" name=\"Default Changelist\" comment=\"Start JPA\">\r\n      <change afterPath=\"$PROJECT_DIR$/Truck.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/target/Truck/META-INF/MANIFEST.MF\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/pom.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/pom.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/by/it/academy/database/ConnectorDB.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/by/it/academy/database/ConnectorDB.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"feature/JPA\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"LogFilters\">\r\n    <option name=\"FILTER_ERRORS\" value=\"false\" />\r\n    <option name=\"FILTER_WARNINGS\" value=\"false\" />\r\n    <option name=\"FILTER_INFO\" value=\"true\" />\r\n    <option name=\"FILTER_DEBUG\" value=\"true\" />\r\n    <option name=\"CUSTOM_FILTER\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2LeXKRIjeyABsZB0y21nTgg4Dxi\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"DatabaseDriversLRU\" value=\"postgresql\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../shop\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Project\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.38965517\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"E:\\Обучение IT Academy\\ProjectEnteprise\\Truck\\src\\main\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"E:\\Обучение IT Academy\\ProjectEnteprise\\Truck\\src\\main\\java\" />\r\n      <recent name=\"E:\\Обучение IT Academy\\ProjectEnteprise\\Truck\\src\\main\\resources\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Tomcat Server.Tomcat 9.0.702\">\r\n    <configuration name=\"HelloWorldClient\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"JPA.client.HelloWorldClient\" />\r\n      <module name=\"Truck\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"JPA.client.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"Tomcat 9.0.702\" type=\"#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory\" factoryName=\"Local\" editBeforeRun=\"true\" APPLICATION_SERVER_NAME=\"Tomcat 9.0.70\" ALTERNATIVE_JRE_ENABLED=\"false\" nameIsGenerated=\"true\">\r\n      <option name=\"UPDATING_POLICY\" value=\"restart-server\" />\r\n      <deployment>\r\n        <artifact name=\"Truck:war\">\r\n          <settings>\r\n            <option name=\"CONTEXT_PATH\" value=\"/\" />\r\n          </settings>\r\n        </artifact>\r\n      </deployment>\r\n      <server-settings>\r\n        <option name=\"BASE_DIRECTORY_NAME\" value=\"7782c664-8e43-4003-a184-0b7bdf8714d7\" />\r\n      </server-settings>\r\n      <predefined_log_file enabled=\"true\" id=\"Tomcat\" />\r\n      <predefined_log_file enabled=\"true\" id=\"Tomcat Catalina\" />\r\n      <predefined_log_file id=\"Tomcat Manager\" />\r\n      <predefined_log_file id=\"Tomcat Host Manager\" />\r\n      <predefined_log_file id=\"Tomcat Localhost Access\" />\r\n      <RunnerSettings RunnerId=\"Debug\">\r\n        <option name=\"DEBUG_PORT\" value=\"6352\" />\r\n      </RunnerSettings>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Cover\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Debug\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Profile\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <ConfigurationWrapper VM_VAR=\"JAVA_OPTS\" RunnerId=\"Run\">\r\n        <option name=\"USE_ENV_VARIABLES\" value=\"true\" />\r\n        <STARTUP>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </STARTUP>\r\n        <SHUTDOWN>\r\n          <option name=\"USE_DEFAULT\" value=\"true\" />\r\n          <option name=\"SCRIPT\" value=\"\" />\r\n          <option name=\"VM_PARAMETERS\" value=\"\" />\r\n          <option name=\"PROGRAM_PARAMETERS\" value=\"\" />\r\n        </SHUTDOWN>\r\n      </ConfigurationWrapper>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n        <option name=\"BuildArtifacts\" enabled=\"true\">\r\n          <artifact name=\"Truck:war\" />\r\n        </option>\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.HelloWorldClient\" />\r\n      <item itemvalue=\"Tomcat Server.Tomcat 9.0.702\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.HelloWorldClient\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"56f8975f-b76d-4f33-a9b5-cf8f336b83d0\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1676232458668</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1676232458668</updated>\r\n      <workItem from=\"1676232459797\" duration=\"751000\" />\r\n      <workItem from=\"1676233335628\" duration=\"78000\" />\r\n      <workItem from=\"1676233450978\" duration=\"9659000\" />\r\n      <workItem from=\"1676484900451\" duration=\"612000\" />\r\n      <workItem from=\"1676562803730\" duration=\"518000\" />\r\n      <workItem from=\"1676563351478\" duration=\"1639000\" />\r\n      <workItem from=\"1676582882796\" duration=\"989000\" />\r\n      <workItem from=\"1676932824000\" duration=\"644000\" />\r\n      <workItem from=\"1677410096522\" duration=\"36000\" />\r\n      <workItem from=\"1677411935778\" duration=\"666000\" />\r\n      <workItem from=\"1677444913044\" duration=\"651000\" />\r\n      <workItem from=\"1677448991288\" duration=\"50000\" />\r\n      <workItem from=\"1677449968528\" duration=\"8000\" />\r\n      <workItem from=\"1677451952462\" duration=\"1194000\" />\r\n      <workItem from=\"1677589676916\" duration=\"109000\" />\r\n      <workItem from=\"1677607854294\" duration=\"595000\" />\r\n      <workItem from=\"1677610945858\" duration=\"183000\" />\r\n      <workItem from=\"1677616012602\" duration=\"174000\" />\r\n      <workItem from=\"1677617765067\" duration=\"10450000\" />\r\n      <workItem from=\"1677672081933\" duration=\"648000\" />\r\n      <workItem from=\"1677672922961\" duration=\"2300000\" />\r\n      <workItem from=\"1677695826849\" duration=\"2557000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Project servlets\">\r\n      <created>1676235077170</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676235077170</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Project pom and jsp\">\r\n      <created>1676235606999</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1676235606999</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Start JPA\">\r\n      <created>1677671906394</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1677671906394</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Project servlets\" />\r\n    <MESSAGE value=\"Project pom and jsp\" />\r\n    <MESSAGE value=\"Start JPA\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Start JPA\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 350a9d9b08f4e14096748d4461da037cc6c6179a)
++++ b/.idea/workspace.xml	(date 1677773899225)
+@@ -10,10 +10,21 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="56f8975f-b76d-4f33-a9b5-cf8f336b83d0" name="Default Changelist" comment="Start JPA">
+-      <change afterPath="$PROJECT_DIR$/Truck.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/target/Truck/META-INF/MANIFEST.MF" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/database/ConnectorDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/database/ConnectorDB.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_11__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_11__Default_Changelist_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Truck.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck.war" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/404.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/addproduct.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/admin.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/carrier.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/deleteproduct.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/login.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/productslist.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/sign_up.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/Truck/supplier.jsp" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -78,32 +89,8 @@
+       <recent name="E:\Обучение IT Academy\ProjectEnteprise\Truck\src\main\resources" />
+     </key>
+   </component>
+-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.702">
+-    <configuration name="HelloWorldClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="JPA.client.HelloWorldClient" />
+-      <module name="Truck" />
+-      <extension name="coverage">
+-        <pattern>
+-          <option name="PATTERN" value="JPA.client.*" />
+-          <option name="ENABLED" value="true" />
+-        </pattern>
+-      </extension>
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+-      <option name="arquillianRunConfiguration">
+-        <value>
+-          <option name="containerStateName" value="" />
+-        </value>
+-      </option>
+-      <option name="TEST_OBJECT" value="class" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-    <configuration name="Tomcat 9.0.702" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 9.0.70" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
++  <component name="RunManager">
++    <configuration name="Tomcat 9.0.70" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" editBeforeRun="true" APPLICATION_SERVER_NAME="Tomcat 9.0.70" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+       <option name="UPDATING_POLICY" value="restart-server" />
+       <deployment>
+         <artifact name="Truck:war">
+@@ -113,7 +100,8 @@
+         </artifact>
+       </deployment>
+       <server-settings>
+-        <option name="BASE_DIRECTORY_NAME" value="7782c664-8e43-4003-a184-0b7bdf8714d7" />
++        <option name="BASE_DIRECTORY_NAME" value="3f7e0ff5-1535-45c5-a753-f0d6bfbaa7ba" />
++        <option name="JNDI_PORT" value="1098" />
+       </server-settings>
+       <predefined_log_file enabled="true" id="Tomcat" />
+       <predefined_log_file enabled="true" id="Tomcat Catalina" />
+@@ -121,7 +109,7 @@
+       <predefined_log_file id="Tomcat Host Manager" />
+       <predefined_log_file id="Tomcat Localhost Access" />
+       <RunnerSettings RunnerId="Debug">
+-        <option name="DEBUG_PORT" value="6352" />
++        <option name="DEBUG_PORT" value="14740" />
+       </RunnerSettings>
+       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+         <option name="USE_ENV_VARIABLES" value="true" />
+@@ -190,15 +178,6 @@
+         </option>
+       </method>
+     </configuration>
+-    <list>
+-      <item itemvalue="Application.HelloWorldClient" />
+-      <item itemvalue="Tomcat Server.Tomcat 9.0.702" />
+-    </list>
+-    <recent_temporary>
+-      <list>
+-        <item itemvalue="Application.HelloWorldClient" />
+-      </list>
+-    </recent_temporary>
+   </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">

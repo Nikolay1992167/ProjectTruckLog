@@ -101,12 +101,41 @@
            </table>
        </div>
         <p></p>
-        <h3>Remove user from database</h3>
+        <h3>Remove user in database</h3>
         <form action="/delete_user" method="post">
             <input type="text" name="id" placeholder="Put your id">
             <input type="submit" value="Remove">
         </form>
-        <p></p>
+        <h3>Update user in database</h3>
+        <body>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name Company</th>
+                <th>Location adresse</th>
+                <th>Email</th>
+                <th>User name</th>
+                <th>Password user</th>
+                <th>User type</th>
+            </tr>
+            </thead>
+            <tbody>
+            <form action="/update" method="post">
+                <tr>
+                    <td><input type="text" name="id" placeholder="Put ID"></td>
+                    <td><input type="text" name="nameCompany" placeholder="Put name company"></td>
+                    <td><input type="text" name="location" placeholder="Put location"></td>
+                    <td><input type="text" name="email" placeholder="Put email"></td>
+                    <td><input type="text" name="userName" placeholder="Put user name"></td>
+                    <td><input type="text" name="password"  placeholder="Put password"></td>
+                    <td><input type="text" name="userType"   placeholder="Put user type"></td>
+                    <td><input type="submit" value="Update"></td>
+                </tr>
+            </form>
+            </tbody>
+        </table>
+        </body>
         <h3>Product List</h3>
         <div>
             <%@include file="productslist.jsp" %>
@@ -116,9 +145,35 @@
             <%@include file="addproduct.jsp" %>
         </div>
         <div>
-            <h3>Remove a product from the list</h3>
+            <h3>Remove a product in the list</h3>
             <%@include file="deleteproduct.jsp" %>
         </div>
+        <h3>Update product in database</h3>
+        <body>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Weight</th>
+                <th>Loading location</th>
+                <th>Unloading location</th>
+                <th>Cargo cost</th>
+            </tr>
+            </thead>
+            <tbody>
+            <form action="/updateProduct" method="post">
+                <tr>
+                    <td><input type="text" name="id" placeholder="Put ID"></td>
+                    <td><input type="text" name="weight" placeholder="Put your weight"></td>
+                    <td><input type="text" name="loadingLocation" placeholder="Put your loading location"></td>
+                    <td><input type="text" name="unloadingLocation" placeholder="Put your unloading location"></td>
+                    <td><input type="text" name="cargoCost" placeholder="Put your cargo cost"></td>
+                    <td><input type="submit" value="Update"></td>
+                </tr>
+            </form>
+            </tbody>
+        </table>
+        </body>
         <div class="agile_back_home">
             <a href="index.jsp">Back to home</a>
         </div>
