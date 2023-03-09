@@ -17,9 +17,9 @@
     <form action="/creat_product" method="post">
         <tr>
             <td><input type="text" name="weight" placeholder="Put your weight"></td>
-            <td><input type="text" name="loading_location" placeholder="Put your loading location"></td>
-            <td><input type="text" name="unloading_location" placeholder="Put your unloading location"></td>
-            <td><input type="text" name="cargo_cost" placeholder="Put your cargo cost"></td>
+            <td><input type="text" name="loadingLocation" placeholder="Put your loading location"></td>
+            <td><input type="text" name="unloadingLocation" placeholder="Put your unloading location"></td>
+            <td><input type="text" name="cargoCost" placeholder="Put your cargo cost"></td>
             <td><input type="submit" value="Add"></td>
         </tr>
     </form>

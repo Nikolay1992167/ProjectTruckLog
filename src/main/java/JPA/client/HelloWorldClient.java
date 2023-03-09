@@ -1,7 +1,7 @@
 package JPA.client;
 
 import JPA.entity.Message;
-import JPA.util.JPAUtil;
+import by.it.academy.jpautil.JPAUtil;
 
 import javax.persistence.EntityManager;
 

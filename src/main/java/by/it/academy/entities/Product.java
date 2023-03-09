@@ -1,16 +1,35 @@
 package by.it.academy.entities;
 
-import lombok.AllArgsConstructor;
+
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
+@Table(name = "PRODUCTS", schema = "public")
 public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "IDPROD")
     private int id;
+    @Column(name = "WEIGHT")
     private int weight;
-    private String loading_location;
-    private String unloading_location;
-    private int cargo_cost;
+    @Column(name = "LOADINGLOC")
+    private String loadingLocation;
+    @Column(name = "UNLOADINGLOC")
+    private String unloadingLocation;
+    @Column(name = "CARGOCOST")
+    private int cargoCost;
+
+    public Product() {
+    }
+
+    public Product(int weight, String loadingLocation, String unloadingLocation, int cargoCost) {
+        this.weight = weight;
+        this.loadingLocation = loadingLocation;
+        this.unloadingLocation = unloadingLocation;
+        this.cargoCost = cargoCost;
+    }
 }
