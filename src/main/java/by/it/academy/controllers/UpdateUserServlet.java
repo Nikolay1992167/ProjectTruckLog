@@ -12,7 +12,7 @@ import static by.it.academy.entities.Constants.*;
 
 @WebServlet(urlPatterns = {"/update"}, loadOnStartup = 0)
 public class UpdateUserServlet extends HttpServlet {
-    UserService userService = new UserService();
+    UserService userService;
 
     @SneakyThrows
     @Override

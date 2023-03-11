@@ -12,8 +12,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(urlPatterns = "/read_products")
 public class ReadProductsServlet extends HttpServlet {
 
-   ProductService productService = new ProductService();
-   ValidationInServletService service = new ValidationInServletService();
+   ProductService productService;
+   ValidationInServletService service;
 
     @SneakyThrows
     @Override

@@ -1,34 +1,25 @@
 package by.it.academy.database;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 public class ConnectionPool {
-    private ConnectionPool() {
-    }
 
-    private static ConnectionPool instance = null;
+        private static final BasicDataSource ds = new BasicDataSource();
 
-    public static ConnectionPool getInstance() {
-        if (instance == null)
-            instance = new ConnectionPool();
-        return instance;
-    }
-
-    public Connection getConnection() {
-        InitialContext ctx;
-        Connection db = null;
-        try {
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/myCompany");
-            db = ds.getConnection();
-        } catch (NamingException | SQLException e) {
-            e.printStackTrace();
+        static {
+            ds.setUrl("jdbc:postgresql://127.0.0.1:5432/company");
+            ds.setUsername("postgres");
+            ds.setPassword("87654321");
+            ds.setMinIdle(5);
+            ds.setMaxIdle(10);
+            ds.setMaxOpenPreparedStatements(100);
         }
-        return db;
-    }
 
+        public static Connection getConnection() throws SQLException {
+            return ds.getConnection();
+        }
+
+        private ConnectionPool(){ }
 }

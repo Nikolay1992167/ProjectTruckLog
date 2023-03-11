@@ -1,12 +1,10 @@
 package by.it.academy.services;
 import by.it.academy.database.ConnectionPool;
 import by.it.academy.database.ConnectorDB;
-import by.it.academy.entities.UserType;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,13 +14,25 @@ import java.sql.SQLException;
 import static by.it.academy.entities.Constants.*;
 
 public class ValidationInFilterService {
-    //Connection connection = ConnectionPool.getInstance().getConnection();
+    private static ValidationInFilterService instance;
+
+    private ValidationInFilterService() {
+    }
+
+    public static ValidationInFilterService getInstance() {
+        if (instance == null) {
+            instance = new ValidationInFilterService();
+        }
+        return instance;
+    }
 
 
-    public void checkStringsForDuplicates(HttpServletRequest req, HttpServletResponse res) throws SQLException, ClassNotFoundException {
-        Connection connection = ConnectorDB.getConnection();
+
+    public void checkStringsForDuplicates(HttpServletRequest req, HttpServletResponse res) throws SQLException {
+        Connection connection = ConnectionPool.getConnection();
+        //Connection connection = ConnectorDB.getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE namecompany = ? OR email = ? OR username = ? OR password_user = ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM USERS WHERE COMPANY_NAME = ? OR EMAIL = ? OR USER_NAME = ? OR USER_PASSWORD = ?");
             statement.setString(1, req.getParameter("nameCompany"));
             statement.setString(2, req.getParameter("email"));
             statement.setString(3, req.getParameter("userName"));

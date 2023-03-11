@@ -9,20 +9,130 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56f8975f-b76d-4f33-a9b5-cf8f336b83d0" name="Default Changelist" comment="Add pool connection.">
+    <list default="true" id="56f8975f-b76d-4f33-a9b5-cf8f336b83d0" name="Default Changelist" comment="JPA trial version.">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_dbcp2_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_pool2_2_10_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Truck_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Truck_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/759440cc-5349-4dce-bee4-5f9e13f26706.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/759440cc-5349-4dce-bee4-5f9e13f26706/storage_v2/_src_/database/my_company.6oTU3A.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/759440cc-5349-4dce-bee4-5f9e13f26706/storage_v2/_src_/database/my_company.6oTU3A/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/759440cc-5349-4dce-bee4-5f9e13f26706/storage_v2/_src_/database/my_company.6oTU3A/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/759440cc-5349-4dce-bee4-5f9e13f26706/storage_v2/_src_/database/my_company.6oTU3A/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_dbcp_commons_dbcp_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_pool_commons_pool_1_5_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_5_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_postgresql_postgresql_42_5_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/AuthenticationServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/AuthenticationServlet1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/AuthorizationFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/AuthorizationFilter1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ConnectorDB.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ConnectorDB1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/CreateServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/CreateServlet1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/LogoutServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/LogoutServlet1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/Product1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletCreatProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletCreatProduct1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletDeleteProduct.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletDeleteProduct1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletDeleteUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletDeleteUser1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletReadProducts.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletReadProducts1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletReadUsers.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/ServletReadUsers1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/Truck.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/User1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/UserType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/UserType1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/checker-qual-3.5.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/javax.servlet-jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/jstl-jstl-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/log4j-1.2.17.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/postgresql-42.5.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/postgresql-9.1-901-1.jdbc4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_09__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_11_[Default_Changelist]/Truck.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_11_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_01_03_2023_15_11__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_03_2023_19_18_[Default_Changelist]/Truck.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_03_2023_19_18_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_02_03_2023_19_18__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Truck.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Truck.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/CreatProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/CreatProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/CreateUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/CreateUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/DeleteProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/DeleteProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/DeleteUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/DeleteUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/ReadProductsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/ReadProductsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/ReadUsersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/ReadUsersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/UpdateProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/UpdateProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/UpdateUserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/controllers/UpdateUserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/database/ConnectionPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/database/ConnectionPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/database/ConnectorDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/database/ConnectorDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/filters/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/filters/AuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/services/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/services/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/services/ValidationInFilterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/services/ValidationInFilterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/by/it/academy/services/ValidationInServletService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/by/it/academy/services/ValidationInServletService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/META-INF/context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/addproduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/addproduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/deleteproduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/deleteproduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/sign_up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/sign_up.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Truck.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/META-INF/context.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/META-INF/context.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/CreatProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/CreatProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/CreateUserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/CreateUserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/DeleteProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/DeleteProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/DeleteUserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/DeleteUserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/ReadProductsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/ReadProductsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/ReadUsersServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/ReadUsersServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/UpdateProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/UpdateProductServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/UpdateUserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/controllers/UpdateUserServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/dao/ProductDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/dao/ProductDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/database/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/database/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/database/ConnectorDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/database/ConnectorDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/filters/AuthorizationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/filters/AuthorizationFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/ProductService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/ValidationInFilterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/ValidationInFilterService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/ValidationInServletService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/ValidationInServletService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/ValidationInServletService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/WEB-INF/classes/by/it/academy/services/ValidationInServletService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/addproduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/addproduct.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Truck/admin.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/admin.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/deleteproduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/deleteproduct.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Truck/sign_up.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Truck/sign_up.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/CreatProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/CreatProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/CreateUserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/CreateUserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/DeleteProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/DeleteProductServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/DeleteUserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/DeleteUserServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/ReadProductsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/ReadProductsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/ReadUsersServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/ReadUsersServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/UpdateProductServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/UpdateProductServlet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/UpdateUserServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/controllers/UpdateUserServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/dao/ProductDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/dao/ProductDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/dao/UserDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/dao/UserDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/database/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/database/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/database/ConnectorDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/database/ConnectorDB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/filters/AuthorizationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/filters/AuthorizationFilter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/services/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/services/ProductService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/services/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/services/ValidationInFilterService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/services/ValidationInFilterService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/services/ValidationInServletService$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/services/ValidationInServletService$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/by/it/academy/services/ValidationInServletService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/by/it/academy/services/ValidationInServletService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -51,6 +161,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -74,15 +192,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Set Language" value="PostgreSQL" />
+    <property name="database.data.extractors.current.export.id" value="SQL Updates" />
+    <property name="database.data.extractors.current.id" value="SQL Updates" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../hibernate5" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15625" />
     <property name="project.structure.side.proportion" value="0.3876652" />
-    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
+    <property name="settings.editor.selected.configurable" value="preferences.rainbow.brackets" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -94,7 +215,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 9.0.70" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.70" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat 9.0.701" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.701" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="Truck:war">
@@ -104,7 +225,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="74034667-bef9-4ce2-88c4-bef794b31cf4" />
+        <option name="BASE_DIRECTORY_NAME" value="34d0ab41-58c9-4f6f-a78a-6b432f83ac99" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -112,7 +233,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="5165" />
+        <option name="DEBUG_PORT" value="9963" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -212,6 +333,11 @@
       <workItem from="1677672081933" duration="648000" />
       <workItem from="1677672922961" duration="2300000" />
       <workItem from="1677695826849" duration="2557000" />
+      <workItem from="1678397670132" duration="1332000" />
+      <workItem from="1678399054051" duration="2626000" />
+      <workItem from="1678401717386" duration="3000" />
+      <workItem from="1678401945238" duration="10614000" />
+      <workItem from="1678528555499" duration="833000" />
     </task>
     <task id="LOCAL-00001" summary="Project servlets">
       <created>1676235077170</created>

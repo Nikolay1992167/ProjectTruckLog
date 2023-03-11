@@ -10,7 +10,7 @@ import static by.it.academy.entities.Constants.*;
 
 @WebServlet(urlPatterns = {"/updateProduct"}, loadOnStartup = 0)
 public class UpdateProductServlet extends HttpServlet {
-    ProductService productService = new ProductService();
+    ProductService productService;
 
     @SneakyThrows
     @Override

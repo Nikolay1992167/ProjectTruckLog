@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(urlPatterns = {"/create"})
 public class AuthorizationFilter extends HttpFilter {
-    ValidationInFilterService filterService = new ValidationInFilterService();
+    ValidationInFilterService filterService;
 
     @SneakyThrows
     @Override

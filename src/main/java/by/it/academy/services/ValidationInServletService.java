@@ -17,20 +17,28 @@ import static by.it.academy.entities.Constants.*;
 
 public class ValidationInServletService {
 
-    public boolean checkingEmptyValuesLogin(String login, String password) {
-        return (login.equals("") || password.equals(""));
+    private static ValidationInServletService instance;
+
+    private ValidationInServletService() {
     }
 
-    public void checkingData(HttpSession session, String login, String password) throws SQLException, ClassNotFoundException {
-        //Connection connection = ConnectionPool.getInstance().getConnection();
-        Connection connection = ConnectorDB.getConnection();
+    public static ValidationInServletService getInstance() {
+        if (instance == null) {
+            instance = new ValidationInServletService();
+        }
+        return instance;
+    }
+
+    public void checkingData(HttpSession session, String login, String password) throws SQLException{
+        Connection connection = ConnectionPool.getConnection();
+        //Connection connection = ConnectorDB.getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE username = ? AND password_user = ?");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM USERS WHERE USER_NAME = ? AND USER_PASSWORD = ?");
             statement.setString(1, login);
             statement.setString(2, password);
             ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-                UserType userType = UserType.valueOf(rs.getString("usertype"));
+                UserType userType = UserType.valueOf(rs.getString("user_type"));
                 session.setAttribute("userName", login);
                 session.setAttribute("password", password);
                 session.setAttribute("userType", userType);
@@ -58,10 +66,6 @@ public class ValidationInServletService {
                 req.getRequestDispatcher(INDEX_PAGE).forward(req, resp);
             }
         }
-    }
-
-    public boolean checkingEmptyValuesCreatUser(HttpServletRequest req) {
-        return (req.getParameter("nameCompany").equals("") || req.getParameter("location").equals("") || req.getParameter("email").equals("") || req.getParameter("userName").equals("") || req.getParameter("password").equals("") || req.getParameter("userType").equals(""));
     }
 
     public void selectPageForType(HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

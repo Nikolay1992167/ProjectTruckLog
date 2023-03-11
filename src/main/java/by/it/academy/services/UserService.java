@@ -5,19 +5,31 @@ import by.it.academy.database.ConnectionPool;
 import by.it.academy.database.ConnectorDB;
 import by.it.academy.entities.User;
 import by.it.academy.entities.UserType;
+
 import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserService implements UserDAO {
+    private static UserService instance;
+
+    private UserService() {
+    }
+
+    public static UserService getInstance() {
+        if (instance == null) {
+            instance = new UserService();
+        }
+        return instance;
+    }
 
     @Override
-    public void creatUser(HttpServletRequest req) throws SQLException, ClassNotFoundException {
-        //Connection connection = ConnectionPool.getInstance().getConnection();
-        Connection connection = ConnectorDB.getConnection();
+    public void creatUser(HttpServletRequest req) throws SQLException{
+        Connection connection = ConnectionPool.getConnection();
+        //Connection connection = ConnectorDB.getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO users(nameCompany, location_adress, email, userName, password_user, userType) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO USERS(COMPANY_NAME, LOC, EMAIL, USER_NAME, USER_PASSWORD, USER_TYPE) VALUES (?, ?, ?, ?, ?, ?)");
             statement.setString(1, req.getParameter("nameCompany"));
             statement.setString(2, req.getParameter("location"));
             statement.setString(3, req.getParameter("email"));
@@ -36,15 +48,15 @@ public class UserService implements UserDAO {
     }
 
     @Override
-    public List<User> readAllUsers(HttpServletRequest req) throws SQLException, ClassNotFoundException {
-        //Connection connection = ConnectionPool.getInstance().getConnection();
-        Connection connection = ConnectorDB.getConnection();
+    public List<User> readAllUsers(HttpServletRequest req) throws SQLException{
+        Connection connection = ConnectionPool.getConnection();
+        //Connection connection = ConnectorDB.getConnection();
         List<User> users = new ArrayList<>();
 
         Statement statement = null;
         try {
             statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM USERS");
             while (resultSet.next()) {
                 User user = new User();
                 user.setId(resultSet.getInt(1));
@@ -71,12 +83,12 @@ public class UserService implements UserDAO {
     }
 
     @Override
-    public void updateUser(HttpServletRequest req) throws SQLException, ClassNotFoundException {
-        //Connection connection = ConnectionPool.getInstance().getConnection();
-        Connection connection = ConnectorDB.getConnection();
+    public void updateUser(HttpServletRequest req) throws SQLException {
+        Connection connection = ConnectionPool.getConnection();
+        //Connection connection = ConnectorDB.getConnection();
 
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE users SET nameCompany=?, location_adress=?, email=?, userName=?, password_user=?, userType=? WHERE ID=?");
+            PreparedStatement statement = connection.prepareStatement("UPDATE USERS SET COMPANY_NAME=?, LOC=?, EMAIL=?, USER_NAME=?, USER_PASSWORD=?, USER_TYPE=? WHERE USER_ID=?");
             statement.setString(1, req.getParameter("nameCompany"));
             statement.setString(2, req.getParameter("location"));
             statement.setString(3, req.getParameter("email"));
@@ -96,13 +108,13 @@ public class UserService implements UserDAO {
     }
 
     @Override
-    public void deleteUser(HttpServletRequest req) throws SQLException, ClassNotFoundException {
-        //Connection connection = ConnectionPool.getInstance().getConnection();
-        Connection connection = ConnectorDB.getConnection();
+    public void deleteUser(HttpServletRequest req) throws SQLException{
+        Connection connection = ConnectionPool.getConnection();
+        //Connection connection = ConnectorDB.getConnection();
         int idUser = Integer.parseInt(req.getParameter("id"));
 
         try {
-            PreparedStatement statement = connection.prepareStatement("DELETE FROM users WHERE id = ?");
+            PreparedStatement statement = connection.prepareStatement("DELETE FROM USERS WHERE USER_ID = ?");
 
             statement.setInt(1, idUser);
 

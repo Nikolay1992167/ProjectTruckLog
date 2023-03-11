@@ -1,0 +1,9 @@
+<changelist name="Uncommitted_changes_before_Checkout_at_08_03_2023_0_27_[Default_Changelist]" date="1678224462219" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_03_2023_0_27_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 08.03.2023 0:27 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="target/Truck.war" />
+    <option name="AFTER_PATH" value="target/Truck.war" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_03_2023_0_27_[Default_Changelist]/Truck.war" />
+  </binary>
+</changelist>

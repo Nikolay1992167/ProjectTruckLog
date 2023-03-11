@@ -56,8 +56,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <a href="login.jsp">Login</a> details to login here. Or <a href="sign_up.jsp">
                 Register</a> here.</h3>
         <form action="/authorize" method="post">
-            <td><input type="text" name="userName" placeholder="Put your User Name"></td>
-            <td><input type="password" class="lock" name="password" placeholder="Put your Password"></td>
+            <td><input type="text" name="userName" placeholder="Put your User Name" required></td>
+            <td><input type="password" class="lock" name="password" placeholder="Put your Password" required></td>
             <input type="submit" value="Login">
         </form>
         <div class="agile_back_home">

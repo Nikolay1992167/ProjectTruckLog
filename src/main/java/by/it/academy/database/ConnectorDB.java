@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class ConnectorDB {
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
-        final String url = "jdbc:postgresql://127.0.0.1:5432/my_company";
+        final String url = "jdbc:postgresql://127.0.0.1:5432/company";
         final String user = "postgres";
         final String password = "87654321";
         return DriverManager.getConnection(url, user, password);

@@ -11,7 +11,7 @@ import static by.it.academy.entities.Constants.*;
 @WebServlet(urlPatterns = "/delete_product")
 public class DeleteProductServlet extends HttpServlet {
 
-    ProductService productService = new ProductService();
+    ProductService productService;
 
     @SneakyThrows
     @Override

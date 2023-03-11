@@ -6,10 +6,11 @@
             maxIdle="2"
             maxWait="5000"
             name="jdbc/myCompany"
+            author = "Container"
             username="postgres"
             password="87654321"
             type="javax.sql.DataSource"
-            url="jdbc:postgresql://127.0.0.1:5432/my_company"
+            url="jdbc:postgresql://127.0.0.1:5432/company"
             validationQuery="SELECT 1">
     </Resource>
 </Context>
