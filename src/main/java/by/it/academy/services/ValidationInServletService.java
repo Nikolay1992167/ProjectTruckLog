@@ -1,31 +1,50 @@
 package by.it.academy.services;
-
 import by.it.academy.entities.User;
 import by.it.academy.entities.UserType;
 import by.it.academy.jpautil.JPAUtil;
-
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Optional;
 
 import static by.it.academy.entities.Constants.*;
 
 public class ValidationInServletService {
-    EntityManager entityManager = JPAUtil.getEntityManager();
+    private static ValidationInServletService instance;
 
-    public boolean checkingEmptyValuesLogin(String login, String password) {
-        return (login.equals("") || password.equals(""));
+    private ValidationInServletService() {
     }
 
-    public void checkingData(HttpSession session, String login, String password){
+    public static ValidationInServletService getInstance() {
+        if (instance == null) {
+            instance = new ValidationInServletService();
+        }
+        return instance;
+    }
+
+    EntityManager entityManager = new JPAUtil().getEntityManager();
+
+    public void checkingData(HttpSession session, String login, String password) {
         entityManager.getTransaction().begin();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         try {
-            User user = (User) entityManager.createQuery("SELECT user FROM User user WHERE user.userName = ?1 OR user.password = ?2")
-                    .setParameter(1, login).setParameter(2,password)
-                    .getSingleResult();
+            CriteriaQuery<User> criteriaQuery = cb.createQuery(User.class);
+            Root<User> userRoot = criteriaQuery.from(User.class);
+            Predicate predicate = cb.or(
+                    cb.equal(userRoot.get("userName"), login),
+                    cb.equal(userRoot.get("password"), password)
+            );
+            criteriaQuery.select(userRoot).where(predicate);
+            Optional <User> userOptional = entityManager.createQuery(criteriaQuery).getResultStream().findFirst();
+            User user = userOptional.orElse(null);
+
             while (user != null) {
                 UserType userType = user.getUserType();
                 session.setAttribute("userName", login);
@@ -33,8 +52,7 @@ public class ValidationInServletService {
                 session.setAttribute("userType", userType);
             }
             entityManager.getTransaction().commit();
-        }
-        finally {
+        } finally {
             entityManager.close();
         }
     }
@@ -52,10 +70,6 @@ public class ValidationInServletService {
                 req.getRequestDispatcher(INDEX_PAGE).forward(req, resp);
             }
         }
-    }
-
-    public boolean checkingEmptyValuesCreatUser(HttpServletRequest req) {
-        return (req.getParameter("nameCompany").equals("") || req.getParameter("location").equals("") || req.getParameter("email").equals("") || req.getParameter("userName").equals("") || req.getParameter("password").equals("") || req.getParameter("userType").equals(""));
     }
 
     public void selectPageForType(HttpSession session, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

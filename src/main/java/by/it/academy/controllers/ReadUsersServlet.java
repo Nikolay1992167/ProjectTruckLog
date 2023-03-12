@@ -11,7 +11,7 @@ import static by.it.academy.entities.Constants.*;
 @WebServlet(urlPatterns = "/read_users")
 public class ReadUsersServlet extends HttpServlet {
 
-    UserService userService = new UserService();
+    UserService userService = UserService.getInstance();
 
     @SneakyThrows
     @Override

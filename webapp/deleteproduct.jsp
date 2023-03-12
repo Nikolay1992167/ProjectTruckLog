@@ -5,7 +5,7 @@
 </head>
 <body>
 <form action="/delete_product" method="post">
-    <input type="text" name="id" placeholder="Put your id">
+    <input type="text" name="id" placeholder="Put your id" required>
     <input type="submit" value="Reservation">
 </form>
 </body>

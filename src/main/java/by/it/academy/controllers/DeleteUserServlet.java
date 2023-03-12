@@ -10,11 +10,11 @@ import static by.it.academy.entities.Constants.*;
 
 @WebServlet(urlPatterns = "/delete_user")
 public class DeleteUserServlet extends HttpServlet {
-
+    UserService userService = UserService.getInstance();
     @SneakyThrows
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
-        UserService userService = new UserService();
+
         userService.deleteUser(req);
         req.getRequestDispatcher(READ_USERS).forward(req, resp);
     }

@@ -123,13 +123,13 @@
             <tbody>
             <form action="/update" method="post">
                 <tr>
-                    <td><input type="text" name="id" placeholder="Put ID"></td>
-                    <td><input type="text" name="nameCompany" placeholder="Put name company"></td>
-                    <td><input type="text" name="location" placeholder="Put location"></td>
-                    <td><input type="text" name="email" placeholder="Put email"></td>
-                    <td><input type="text" name="userName" placeholder="Put user name"></td>
-                    <td><input type="text" name="password"  placeholder="Put password"></td>
-                    <td><input type="text" name="userType"   placeholder="Put user type"></td>
+                    <td><input type="text" name="id" placeholder="Put ID" required></td>
+                    <td><input type="text" name="nameCompany" placeholder="Put name company" required></td>
+                    <td><input type="text" name="location" placeholder="Put location" required></td>
+                    <td><input type="text" name="email" placeholder="Put email" required></td>
+                    <td><input type="text" name="userName" placeholder="Put user name" required></td>
+                    <td><input type="text" name="password"  placeholder="Put password" required></td>
+                    <td><input type="text" name="userType"   placeholder="Put user type" required></td>
                     <td><input type="submit" value="Update"></td>
                 </tr>
             </form>
@@ -163,11 +163,11 @@
             <tbody>
             <form action="/updateProduct" method="post">
                 <tr>
-                    <td><input type="text" name="id" placeholder="Put ID"></td>
-                    <td><input type="text" name="weight" placeholder="Put your weight"></td>
-                    <td><input type="text" name="loadingLocation" placeholder="Put your loading location"></td>
-                    <td><input type="text" name="unloadingLocation" placeholder="Put your unloading location"></td>
-                    <td><input type="text" name="cargoCost" placeholder="Put your cargo cost"></td>
+                    <td><input type="text" name="id" placeholder="Put ID" required></td>
+                    <td><input type="text" name="weight" placeholder="Put your weight" required></td>
+                    <td><input type="text" name="loadingLocation" placeholder="Put your loading location" required></td>
+                    <td><input type="text" name="unloadingLocation" placeholder="Put your unloading location" required></td>
+                    <td><input type="text" name="cargoCost" placeholder="Put your cargo cost" required></td>
                     <td><input type="submit" value="Update"></td>
                 </tr>
             </form>

@@ -12,14 +12,14 @@ import javax.servlet.http.HttpSession;
 @WebServlet(urlPatterns = "/read_products")
 public class ReadProductsServlet extends HttpServlet {
 
-   ProductService productService = new ProductService();
-   ValidationInServletService service = new ValidationInServletService();
+   ProductService productService = ProductService.getInstance();
+   ValidationInServletService service = ValidationInServletService.getInstance();
 
     @SneakyThrows
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession(true);
-        productService.readAllProducts(req);
+        productService.readAllProducts();
         service.selectPageForType(session,req,resp);
     }
 

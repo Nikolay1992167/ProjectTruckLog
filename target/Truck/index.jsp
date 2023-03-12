@@ -23,7 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="container">
         <div class="w3l_header_left">
             <ul>
-                <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+ (375) 29 736 72 10</li>
+                <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+ (375) 29 967 72 79</li>
                 <li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="minickola50@gmail.com">minickola50@gmail.com</a></li>
             </ul>
         </div>

@@ -11,7 +11,7 @@ public interface ProductDAO {
 
     void creatProduct(HttpServletRequest req) throws SQLException, ClassNotFoundException;
 
-    List<Product> readAllProducts(HttpServletRequest req) throws SQLException, ClassNotFoundException;
+    List<Product> readAllProducts() throws SQLException, ClassNotFoundException;
 
     void updateProduct(HttpServletRequest req) throws SQLException, ClassNotFoundException;
 

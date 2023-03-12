@@ -9,19 +9,19 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "USER_ID")
     private int id;
-    @Column(name = "COMPNAME")
+    @Column(name = "COMPANY_NAME")
     private String nameCompany;
-    @Column(name = "LOCATION")
+    @Column(name = "LOC")
     private String location;
     @Column(name = "EMAIL")
     private String email;
-    @Column(name = "NAMEUSER")
+    @Column(name = "USER_NAME")
     private String userName;
-    @Column(name = "PASSUSER")
+    @Column(name = "USER_PASSWORD")
     private String password;
-    @Column(name = "TYPEUSER")
+    @Column(name = "USER_TYPE")
     private UserType userType;
 
     public User() {

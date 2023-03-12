@@ -12,15 +12,15 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "IDPROD")
+    @Column(name = "PROD_ID")
     private int id;
     @Column(name = "WEIGHT")
     private int weight;
-    @Column(name = "LOADINGLOC")
+    @Column(name = "LOADING_LOCATION")
     private String loadingLocation;
-    @Column(name = "UNLOADINGLOC")
+    @Column(name = "UNLOADING_LOCATION")
     private String unloadingLocation;
-    @Column(name = "CARGOCOST")
+    @Column(name = "CARGO_COST")
     private int cargoCost;
 
     public Product() {

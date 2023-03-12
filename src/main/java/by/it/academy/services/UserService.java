@@ -1,16 +1,26 @@
 package by.it.academy.services;
 
 import by.it.academy.dao.UserDAO;
+import by.it.academy.entities.Product;
 import by.it.academy.entities.User;
 import by.it.academy.entities.UserType;
 import by.it.academy.jpautil.JPAUtil;
 
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public class UserService implements UserDAO {
-    EntityManager entityManager = JPAUtil.getEntityManager();
+    private static UserService instance;
+    private UserService(){}
+    public static UserService getInstance(){
+        if(instance == null){
+            instance = new UserService();
+        }
+        return instance;
+    }
+    EntityManager entityManager = new JPAUtil().getEntityManager();
 
     @Override
     public void creatUser(HttpServletRequest req) {
@@ -28,9 +38,15 @@ public class UserService implements UserDAO {
     public List<User> readAllUsers(HttpServletRequest req)  {
         List<User> users;
         entityManager.getTransaction().begin();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         try {
-            users = entityManager.createQuery("from User", User.class).getResultList();
-            req.setAttribute("users", users);
+
+            CriteriaQuery<User> criteriaQuery = cb.createQuery(User.class);
+            Root<User> userRoot = criteriaQuery.from(User.class);
+            criteriaQuery.select(userRoot);
+            users = entityManager.createQuery(criteriaQuery).getResultList();
+            /*users = entityManager.createQuery("from User", User.class).getResultList();
+            req.setAttribute("users", users);*/
             entityManager.getTransaction().commit();
         } finally {
             entityManager.close();
@@ -41,17 +57,30 @@ public class UserService implements UserDAO {
     @Override
     public void updateUser(HttpServletRequest req){
         entityManager.getTransaction().begin();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         try {
-            User user = entityManager.find(User.class, req.getParameter("id"));
+
+            CriteriaUpdate<User> criteriaUpdate = cb.createCriteriaUpdate(User.class);
+            Root<User> root = criteriaUpdate.from(User.class);
+            criteriaUpdate.set("nameCompany", req.getParameter("nameCompany"));
+            criteriaUpdate.set("location",req.getParameter("location"));
+            criteriaUpdate.set("email", req.getParameter("email"));
+            criteriaUpdate.set("userName",req.getParameter("userName"));
+            criteriaUpdate.set("password",req.getParameter("password"));
+            criteriaUpdate.set("userType",UserType.valueOf(req.getParameter("userType")));
+            criteriaUpdate.where(cb.equal(root.get("id"), req.getParameter("id")));
+            entityManager.createQuery(criteriaUpdate).executeUpdate();
+
+            /*User user = entityManager.find(User.class, req.getParameter("id"));
             entityManager.detach(user);
             user.setId(Integer.parseInt(req.getParameter("id")));
-            user.setNameCompany(req.getParameter("nameCompany"));
-            user.setLocation(req.getParameter("location"));
+            user.setNameCompany();
+            user.setLocation();
             user.setEmail(req.getParameter("email"));
             user.setUserName(req.getParameter("userName"));
             user.setPassword(req.getParameter("password"));
-            user.setUserType(UserType.valueOf(req.getParameter("userType")));
-            entityManager.merge(user);
+            user.setUserType();
+            entityManager.merge(user);*/
             entityManager.getTransaction().commit();
         } finally {
             entityManager.close();
@@ -61,9 +90,14 @@ public class UserService implements UserDAO {
     @Override
     public void deleteUser(HttpServletRequest req){
         entityManager.getTransaction().begin();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         try {
-            User user = entityManager.find(User.class, req.getParameter("id"));
-            entityManager.remove(user);
+            CriteriaDelete<User> criteriaDelete = cb.createCriteriaDelete(User.class);
+            Root<User> root = criteriaDelete.from(User.class);
+            criteriaDelete.where(cb.greaterThan(root.get("id"), req.getParameter("id")));
+            entityManager.createQuery(criteriaDelete).executeUpdate();
+            /*User user = entityManager.find(User.class, req.getParameter("id"));
+            entityManager.remove(user);*/
             entityManager.getTransaction().commit();
         } finally {
             entityManager.close();

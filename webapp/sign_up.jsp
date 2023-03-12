@@ -56,12 +56,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <h6>Sign Up</h6>
         <h3>Welcome to our Company.Please enter your Registration details.</h3>
         <form action="/create" method="post">
-            <input type="text" name="nameCompany" placeholder="Put your name company">
-            <input type="text" name="location" placeholder="Put your location">
-            <input type="text" name="email" placeholder="Put your email">
-            <input type="text" name="userName" placeholder="Put your user name">
-            <input type="text" name="password"  placeholder="Put your password">
-            <input type="text" name="userType"   placeholder="Put your user type">
+            <input type="text" name="nameCompany" placeholder="Put your name company" required>
+            <input type="text" name="location" placeholder="Put your location" required>
+            <input type="text" name="email" placeholder="Put your email" required>
+            <input type="text" name="userName" placeholder="Put your user name" required>
+            <input type="text" name="password"  placeholder="Put your password" required>
+            <input type="text" name="userType"   placeholder="Put your user type" required>
             <input type="submit" value="Sign Up">
         </form>
         <div class="agile_back_home">
