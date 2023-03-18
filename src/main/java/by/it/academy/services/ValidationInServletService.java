@@ -3,6 +3,7 @@ import by.it.academy.entities.User;
 import by.it.academy.entities.UserType;
 import by.it.academy.jpautil.JPAUtil;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
@@ -30,29 +31,33 @@ public class ValidationInServletService {
     }
 
     EntityManager entityManager = new JPAUtil().getEntityManager();
-
-    public void checkingData(HttpSession session, String login, String password) {
+    CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+    public void checkingData(HttpSession session, String login, String password, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         entityManager.getTransaction().begin();
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+
         try {
             CriteriaQuery<User> criteriaQuery = cb.createQuery(User.class);
             Root<User> userRoot = criteriaQuery.from(User.class);
-            Predicate predicate = cb.or(
+            Predicate predicate = cb.and(
                     cb.equal(userRoot.get("userName"), login),
                     cb.equal(userRoot.get("password"), password)
             );
             criteriaQuery.select(userRoot).where(predicate);
-            Optional <User> userOptional = entityManager.createQuery(criteriaQuery).getResultStream().findFirst();
-            User user = userOptional.orElse(null);
+            User user = entityManager.createQuery(criteriaQuery).getSingleResult();
+            System.out.println("user = " + user);
 
-            while (user != null) {
+            if (user != null) {
                 UserType userType = user.getUserType();
                 session.setAttribute("userName", login);
                 session.setAttribute("password", password);
                 session.setAttribute("userType", userType);
             }
+
             entityManager.getTransaction().commit();
-        } finally {
+        } catch (NoResultException e){
+            req.getRequestDispatcher(ERROR_PAGE).forward(req, resp);
+        }
+        finally {
             entityManager.close();
         }
     }

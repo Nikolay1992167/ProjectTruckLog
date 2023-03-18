@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import static by.it.academy.entities.Constants.*;
@@ -31,10 +32,9 @@ public class ValidationInFilterService {
     }
 
     EntityManager entityManager = new JPAUtil().getEntityManager();
-
+    CriteriaBuilder cb = entityManager.getCriteriaBuilder();
     public void checkForDuplicates(HttpServletRequest req, HttpServletResponse res) {
         entityManager.getTransaction().begin();
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         try {
             CriteriaQuery<User> criteriaQuery = cb.createQuery(User.class);
             Root<User> userRoot = criteriaQuery.from(User.class);
@@ -45,8 +45,8 @@ public class ValidationInFilterService {
                     cb.equal(userRoot.get("password"), req.getParameter("password"))
             );
             criteriaQuery.select(userRoot).where(predicate);
-            Optional<User> userOptional = entityManager.createQuery(criteriaQuery).getResultStream().findFirst();
-            User user = userOptional.orElse(null);
+            List<User> user = entityManager.createQuery(criteriaQuery).getResultList();
+
             if (user != null) {
                 req.getRequestDispatcher(INDEX_PAGE).forward(req, res);
                 return;

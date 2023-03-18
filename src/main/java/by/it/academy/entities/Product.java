@@ -14,6 +14,8 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PROD_ID")
     private int id;
+    @Column(name = "PROD_NAME")
+    private String name;
     @Column(name = "WEIGHT")
     private int weight;
     @Column(name = "LOADING_LOCATION")
@@ -22,14 +24,21 @@ public class Product {
     private String unloadingLocation;
     @Column(name = "CARGO_COST")
     private int cargoCost;
+    //@ManyToOne(cascade = {CascadeType.ALL})
+    //@JoinColumn(name="CHARACTERISTIC_ID")
+    private int transportCharacteristic;
 
     public Product() {
     }
 
-    public Product(int weight, String loadingLocation, String unloadingLocation, int cargoCost) {
+    public Product(String name, int weight, String loadingLocation, String unloadingLocation, int cargoCost, int transportCharacteristic) {
+        this.name = name;
         this.weight = weight;
         this.loadingLocation = loadingLocation;
         this.unloadingLocation = unloadingLocation;
         this.cargoCost = cargoCost;
+        this.transportCharacteristic = transportCharacteristic;
     }
+
+
 }

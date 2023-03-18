@@ -3,7 +3,6 @@ package by.it.academy.services;
 import by.it.academy.dao.ProductDAO;
 import by.it.academy.entities.Product;
 import by.it.academy.jpautil.JPAUtil;
-
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.*;
 import javax.servlet.http.HttpServletRequest;
@@ -23,12 +22,11 @@ public class ProductService implements ProductDAO {
         return instance;
     }
 
-    EntityManager entityManager = new JPAUtil().getEntityManager();
-
     public void creatProduct(HttpServletRequest req) {
+        EntityManager entityManager = new JPAUtil().getEntityManager();
         entityManager.getTransaction().begin();
         try {
-            Product product = new Product(Integer.parseInt(req.getParameter("weight")), req.getParameter("loadingLocation"), req.getParameter("unloadingLocation"), Integer.parseInt(req.getParameter("cargoCost")));
+            Product product = new Product( req.getParameter("name"), Integer.parseInt(req.getParameter("weight")), req.getParameter("loadingLocation"), req.getParameter("unloadingLocation"), Integer.parseInt(req.getParameter("cargoCost")), Integer.parseInt(req.getParameter("characteristic")));
             entityManager.persist(product);
             entityManager.getTransaction().commit();
         } finally {
@@ -37,48 +35,41 @@ public class ProductService implements ProductDAO {
     }
 
     @Override
-    public List<Product> readAllProducts() {
-        entityManager.getTransaction().begin();
+    public List<Product> readAllProducts(HttpServletRequest req) {
+        EntityManager entityManager = new JPAUtil().getEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        entityManager.getTransaction().begin();
         List<Product> products;
         try {
             CriteriaQuery<Product> criteriaQuery = cb.createQuery(Product.class);
             Root<Product> productRoot = criteriaQuery.from(Product.class);
             criteriaQuery.select(productRoot);
             products = entityManager.createQuery(criteriaQuery).getResultList();
+            req.setAttribute("products", products);
             entityManager.getTransaction().commit();
         } finally {
             entityManager.close();
         }
-
         return products;
     }
 
     @Override
     public void updateProduct(HttpServletRequest req) {
-        entityManager.getTransaction().begin();
+        EntityManager entityManager = new JPAUtil().getEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        entityManager.getTransaction().begin();
         try {
-
             CriteriaUpdate<Product> criteriaUpdate = cb.createCriteriaUpdate(Product.class);
             Root<Product> root = criteriaUpdate.from(Product.class);
+            criteriaUpdate.set("name", Integer.parseInt(req.getParameter("name")));
             criteriaUpdate.set("weight", Integer.parseInt(req.getParameter("weight")));
             criteriaUpdate.set("loadingLocation", req.getParameter("loadingLocation"));
             criteriaUpdate.set("unloadingLocation", req.getParameter("unloadingLocation"));
             criteriaUpdate.set("cargoCost", Integer.parseInt(req.getParameter("cargoCost")));
+            criteriaUpdate.set("transportCharacteristic", Integer.parseInt(req.getParameter("characteristic")));
             criteriaUpdate.where(cb.equal(root.get("id"), req.getParameter("id")));
             entityManager.createQuery(criteriaUpdate).executeUpdate();
             entityManager.getTransaction().commit();
-
-            /*Product product = entityManager.find(Product.class, req.getParameter("id"));
-            entityManager.detach(product);
-            product.setId(Integer.parseInt());
-            product.setWeight(Integer.parseInt());
-            product.setLoadingLocation();
-            product.setUnloadingLocation(req.getParameter("unloadingLocation"));
-            product.setCargoCost();
-            entityManager.merge(product);
-            entityManager.getTransaction().commit();*/
         } finally {
             entityManager.close();
         }
@@ -86,16 +77,14 @@ public class ProductService implements ProductDAO {
 
     @Override
     public void deleteProduct(HttpServletRequest req) {
-        entityManager.getTransaction().begin();
+        EntityManager entityManager = new JPAUtil().getEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        entityManager.getTransaction().begin();
         try {
-
             CriteriaDelete<Product> criteriaDelete = cb.createCriteriaDelete(Product.class);
             Root<Product> root = criteriaDelete.from(Product.class);
-            criteriaDelete.where(cb.greaterThan(root.get("id"), req.getParameter("id")));
+            criteriaDelete.where(cb.equal(root.get("id"), req.getParameter("id")));
             entityManager.createQuery(criteriaDelete).executeUpdate();
-            /*Product product = entityManager.find(Product.class, req.getParameter("id"));
-            entityManager.remove(product);*/
             entityManager.getTransaction().commit();
         } finally {
             entityManager.close();

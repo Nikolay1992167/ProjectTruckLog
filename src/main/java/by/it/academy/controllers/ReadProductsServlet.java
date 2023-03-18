@@ -19,7 +19,7 @@ public class ReadProductsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         HttpSession session = req.getSession(true);
-        productService.readAllProducts();
+        productService.readAllProducts(req);
         service.selectPageForType(session,req,resp);
     }
 

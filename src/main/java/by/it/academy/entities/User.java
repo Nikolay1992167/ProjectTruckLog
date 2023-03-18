@@ -22,6 +22,7 @@ public class User {
     @Column(name = "USER_PASSWORD")
     private String password;
     @Column(name = "USER_TYPE")
+    @Enumerated(EnumType.STRING)
     private UserType userType;
 
     public User() {

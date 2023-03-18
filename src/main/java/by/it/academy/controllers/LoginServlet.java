@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         HttpSession session = req.getSession(true);
 
-        service.checkingData(session, login, password);
+        service.checkingData(session, login, password, req, resp);
         service.assignActionsByUserType(session, req, resp);
 
     }
