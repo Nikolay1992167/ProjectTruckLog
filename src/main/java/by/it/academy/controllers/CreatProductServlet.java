@@ -16,6 +16,7 @@ public class CreatProductServlet extends HttpServlet {
     @SneakyThrows
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+
         productService.creatProduct(req);
         req.getRequestDispatcher(READ_PRODUCTS).forward(req, resp);
     }

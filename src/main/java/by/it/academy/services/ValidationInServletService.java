@@ -1,6 +1,5 @@
 package by.it.academy.services;
 
-import by.it.academy.database.ConnectionPool;
 import by.it.academy.database.ConnectorDB;
 import by.it.academy.entities.UserType;
 import javax.servlet.ServletException;
@@ -29,9 +28,8 @@ public class ValidationInServletService {
         return instance;
     }
 
-    public void checkingData(HttpSession session, String login, String password) throws SQLException{
-        Connection connection = ConnectionPool.getConnection();
-        //Connection connection = ConnectorDB.getConnection();
+    public void checkingData(HttpSession session, String login, String password) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectorDB.getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM USERS WHERE USER_NAME = ? AND USER_PASSWORD = ?");
             statement.setString(1, login);

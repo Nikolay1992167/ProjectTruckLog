@@ -1,9 +1,9 @@
 package by.it.academy.services;
 
 import by.it.academy.dao.ProductDAO;
-import by.it.academy.database.ConnectionPool;
 import by.it.academy.database.ConnectorDB;
 import by.it.academy.entities.Product;
+
 import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,21 +11,23 @@ import java.util.List;
 
 public class ProductService implements ProductDAO {
     private static ProductService instance;
-    private ProductService(){}
-    public static ProductService getInstance(){
-        if(instance == null){
+
+    private ProductService() {
+    }
+
+    public static ProductService getInstance() {
+        if (instance == null) {
             instance = new ProductService();
         }
         return instance;
     }
 
-    public void creatProduct(HttpServletRequest req) throws SQLException {
-        Connection connection = ConnectionPool.getConnection();
-        //Connection connection = ConnectorDB.getConnection();
+    public void creatProduct(HttpServletRequest req) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectorDB.getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement("INSERT INTO PRODUCTS(WEIGHT, LOADING_LOCATION, UNLOADING_LOCATION, CARGO_COST) VALUES (?, ?, ?, ?)");
-            statement.setInt(1,  Integer.parseInt(req.getParameter("weight")));
-            statement.setString(2,req.getParameter("loadingLocation"));
+            statement.setInt(1, Integer.parseInt(req.getParameter("weight")));
+            statement.setString(2, req.getParameter("loadingLocation"));
             statement.setString(3, req.getParameter("unloadingLocation"));
             statement.setInt(4, Integer.parseInt(req.getParameter("cargoCost")));
             statement.executeUpdate();
@@ -40,9 +42,8 @@ public class ProductService implements ProductDAO {
     }
 
     @Override
-    public List<Product> readAllProducts(HttpServletRequest req) throws SQLException{
-        Connection connection = ConnectionPool.getConnection();
-        //Connection connection = ConnectorDB.getConnection();
+    public List<Product> readAllProducts(HttpServletRequest req) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectorDB.getConnection();
         List<Product> products = new ArrayList<>();
 
         Statement statement = null;
@@ -74,14 +75,13 @@ public class ProductService implements ProductDAO {
 
 
     @Override
-    public void updateProduct(HttpServletRequest req) throws SQLException {
-        Connection connection = ConnectionPool.getConnection();
-        //Connection connection = ConnectorDB.getConnection();
+    public void updateProduct(HttpServletRequest req) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectorDB.getConnection();
 
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE PRODUCTS SET WEIGHT=?, LOADING_LOCATION=?, UNLOADING_LOCATION=?, CARGO_COST=? WHERE PROD_ID=?");
-            statement.setInt(1,  Integer.parseInt(req.getParameter("weight")));
-            statement.setString(2,req.getParameter("loadingLocation"));
+            statement.setInt(1, Integer.parseInt(req.getParameter("weight")));
+            statement.setString(2, req.getParameter("loadingLocation"));
             statement.setString(3, req.getParameter("unloadingLocation"));
             statement.setInt(4, Integer.parseInt(req.getParameter("cargoCost")));
             statement.setInt(5, Integer.parseInt(req.getParameter("id")));
@@ -97,16 +97,13 @@ public class ProductService implements ProductDAO {
     }
 
     @Override
-    public void deleteProduct(HttpServletRequest req) throws SQLException {
-        Connection connection = ConnectionPool.getConnection();
-        //Connection connection = ConnectorDB.getConnection();
+    public void deleteProduct(HttpServletRequest req) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectorDB.getConnection();
         int idProduct = Integer.parseInt(req.getParameter("id"));
 
         try {
             PreparedStatement statement = connection.prepareStatement("DELETE FROM PRODUCTS WHERE PROD_ID = ?");
-
             statement.setInt(1, idProduct);
-
             statement.executeUpdate();
             statement.close();
         } catch (SQLException e) {

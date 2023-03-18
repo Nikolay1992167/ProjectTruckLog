@@ -1,5 +1,4 @@
 package by.it.academy.services;
-import by.it.academy.database.ConnectionPool;
 import by.it.academy.database.ConnectorDB;
 
 import javax.servlet.ServletException;
@@ -28,9 +27,8 @@ public class ValidationInFilterService {
 
 
 
-    public void checkStringsForDuplicates(HttpServletRequest req, HttpServletResponse res) throws SQLException {
-        Connection connection = ConnectionPool.getConnection();
-        //Connection connection = ConnectorDB.getConnection();
+    public void checkStringsForDuplicates(HttpServletRequest req, HttpServletResponse res) throws SQLException, ClassNotFoundException {
+        Connection connection = ConnectorDB.getConnection();
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM USERS WHERE COMPANY_NAME = ? OR EMAIL = ? OR USER_NAME = ? OR USER_PASSWORD = ?");
             statement.setString(1, req.getParameter("nameCompany"));
