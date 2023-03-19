@@ -1,8 +1,6 @@
 package by.it.academy.dao;
 
 import by.it.academy.entities.Product;
-import by.it.academy.entities.User;
-
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
 import java.util.List;

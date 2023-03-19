@@ -1,10 +1,7 @@
 package by.it.academy.entities;
 
-
 import lombok.Data;
-
 import javax.persistence.*;
-
 
 @Data
 @Entity
@@ -12,11 +9,11 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PROD_ID")
+    @Column(name = "PROD_ID", nullable = false)
     private int id;
     @Column(name = "PROD_NAME")
     private String name;
-    @Column(name = "WEIGHT")
+    @Column(name = "WEIGHT", nullable = false)
     private int weight;
     @Column(name = "LOADING_LOCATION")
     private String loadingLocation;
@@ -24,8 +21,7 @@ public class Product {
     private String unloadingLocation;
     @Column(name = "CARGO_COST")
     private int cargoCost;
-    //@ManyToOne(cascade = {CascadeType.ALL})
-    //@JoinColumn(name="CHARACTERISTIC_ID")
+    @Column(name = "CHARACTERISTIC_ID")
     private int transportCharacteristic;
 
     public Product() {
@@ -39,6 +35,4 @@ public class Product {
         this.cargoCost = cargoCost;
         this.transportCharacteristic = transportCharacteristic;
     }
-
-
 }

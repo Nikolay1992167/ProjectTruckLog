@@ -1,7 +1,9 @@
 package by.it.academy.services;
+
 import by.it.academy.entities.User;
 import by.it.academy.entities.UserType;
 import by.it.academy.jpautil.JPAUtil;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -13,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Optional;
 
 import static by.it.academy.entities.Constants.*;
 
@@ -31,33 +32,30 @@ public class ValidationInServletService {
     }
 
     EntityManager entityManager = new JPAUtil().getEntityManager();
-    CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+    CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
+
     public void checkingData(HttpSession session, String login, String password, HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         entityManager.getTransaction().begin();
 
         try {
-            CriteriaQuery<User> criteriaQuery = cb.createQuery(User.class);
+            CriteriaQuery<User> criteriaQuery = criteriaBuilder.createQuery(User.class);
             Root<User> userRoot = criteriaQuery.from(User.class);
-            Predicate predicate = cb.and(
-                    cb.equal(userRoot.get("userName"), login),
-                    cb.equal(userRoot.get("password"), password)
+            Predicate predicate = criteriaBuilder.and(
+                    criteriaBuilder.equal(userRoot.get("userName"), login),
+                    criteriaBuilder.equal(userRoot.get("password"), password)
             );
             criteriaQuery.select(userRoot).where(predicate);
             User user = entityManager.createQuery(criteriaQuery).getSingleResult();
-            System.out.println("user = " + user);
-
             if (user != null) {
                 UserType userType = user.getUserType();
                 session.setAttribute("userName", login);
                 session.setAttribute("password", password);
                 session.setAttribute("userType", userType);
             }
-
             entityManager.getTransaction().commit();
-        } catch (NoResultException e){
+        } catch (NoResultException e) {
             req.getRequestDispatcher(ERROR_PAGE).forward(req, resp);
-        }
-        finally {
+        } finally {
             entityManager.close();
         }
     }

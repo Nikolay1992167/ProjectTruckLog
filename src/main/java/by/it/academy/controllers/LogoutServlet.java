@@ -11,7 +11,6 @@ import static by.it.academy.entities.Constants.*;
 @WebServlet(urlPatterns = {"/logout"}, loadOnStartup = 0)
 public class LogoutServlet extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         final HttpSession session = req.getSession();

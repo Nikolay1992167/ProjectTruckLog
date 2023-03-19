@@ -26,7 +26,12 @@ public class ProductService implements ProductDAO {
         EntityManager entityManager = new JPAUtil().getEntityManager();
         entityManager.getTransaction().begin();
         try {
-            Product product = new Product( req.getParameter("name"), Integer.parseInt(req.getParameter("weight")), req.getParameter("loadingLocation"), req.getParameter("unloadingLocation"), Integer.parseInt(req.getParameter("cargoCost")), Integer.parseInt(req.getParameter("characteristic")));
+            Product product = new Product(req.getParameter("name")
+                    , Integer.parseInt(req.getParameter("weight"))
+                    , req.getParameter("loadingLocation")
+                    , req.getParameter("unloadingLocation")
+                    , Integer.parseInt(req.getParameter("cargoCost"))
+                    , Integer.parseInt(req.getParameter("characteristic")));
             entityManager.persist(product);
             entityManager.getTransaction().commit();
         } finally {
@@ -37,11 +42,11 @@ public class ProductService implements ProductDAO {
     @Override
     public List<Product> readAllProducts(HttpServletRequest req) {
         EntityManager entityManager = new JPAUtil().getEntityManager();
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         entityManager.getTransaction().begin();
         List<Product> products;
         try {
-            CriteriaQuery<Product> criteriaQuery = cb.createQuery(Product.class);
+            CriteriaQuery<Product> criteriaQuery = criteriaBuilder.createQuery(Product.class);
             Root<Product> productRoot = criteriaQuery.from(Product.class);
             criteriaQuery.select(productRoot);
             products = entityManager.createQuery(criteriaQuery).getResultList();
@@ -56,10 +61,10 @@ public class ProductService implements ProductDAO {
     @Override
     public void updateProduct(HttpServletRequest req) {
         EntityManager entityManager = new JPAUtil().getEntityManager();
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         entityManager.getTransaction().begin();
         try {
-            CriteriaUpdate<Product> criteriaUpdate = cb.createCriteriaUpdate(Product.class);
+            CriteriaUpdate<Product> criteriaUpdate = criteriaBuilder.createCriteriaUpdate(Product.class);
             Root<Product> root = criteriaUpdate.from(Product.class);
             criteriaUpdate.set("name", Integer.parseInt(req.getParameter("name")));
             criteriaUpdate.set("weight", Integer.parseInt(req.getParameter("weight")));
@@ -67,7 +72,7 @@ public class ProductService implements ProductDAO {
             criteriaUpdate.set("unloadingLocation", req.getParameter("unloadingLocation"));
             criteriaUpdate.set("cargoCost", Integer.parseInt(req.getParameter("cargoCost")));
             criteriaUpdate.set("transportCharacteristic", Integer.parseInt(req.getParameter("characteristic")));
-            criteriaUpdate.where(cb.equal(root.get("id"), req.getParameter("id")));
+            criteriaUpdate.where(criteriaBuilder.equal(root.get("id"), req.getParameter("id")));
             entityManager.createQuery(criteriaUpdate).executeUpdate();
             entityManager.getTransaction().commit();
         } finally {
@@ -78,12 +83,12 @@ public class ProductService implements ProductDAO {
     @Override
     public void deleteProduct(HttpServletRequest req) {
         EntityManager entityManager = new JPAUtil().getEntityManager();
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         entityManager.getTransaction().begin();
         try {
-            CriteriaDelete<Product> criteriaDelete = cb.createCriteriaDelete(Product.class);
-            Root<Product> root = criteriaDelete.from(Product.class);
-            criteriaDelete.where(cb.equal(root.get("id"), req.getParameter("id")));
+            CriteriaDelete<Product> criteriaDelete = criteriaBuilder.createCriteriaDelete(Product.class);
+            Root<Product> productRoot = criteriaDelete.from(Product.class);
+            criteriaDelete.where(criteriaBuilder.equal(productRoot.get("id"), req.getParameter("id")));
             entityManager.createQuery(criteriaDelete).executeUpdate();
             entityManager.getTransaction().commit();
         } finally {

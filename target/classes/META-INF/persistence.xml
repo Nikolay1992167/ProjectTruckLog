@@ -7,7 +7,7 @@
     <!--        <jta-data-source>myDS</jta-data-source>-->
     <class>by.it.academy.entities.Product</class> <!-- хранимые классы   -->
     <class>by.it.academy.entities.User</class> <!-- хранимые классы   -->
-
+    <class>by.it.academy.entities.TransportCharacteristic</class> <!-- хранимые классы   -->
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties> <!-- набор свойств  -->
       <!--            <property-->
