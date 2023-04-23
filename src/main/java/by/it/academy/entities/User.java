@@ -1,19 +1,40 @@
 package by.it.academy.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import javax.persistence.*;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Entity
+@Table(name = "USERS", schema = "public")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "USER_ID", nullable = false)
     private int id;
+    @Column(name = "COMPANY_NAME")
     private String nameCompany;
+    @Column(name = "LOC")
     private String location;
+    @Column(name = "EMAIL")
     private String email;
+    @Column(name = "USER_NAME")
     private String userName;
+    @Column(name = "USER_PASSWORD")
     private String password;
+    @Column(name = "USER_TYPE")
+    @Enumerated(EnumType.STRING)
     private UserType userType;
+
+    public User() {
+    }
+
+    public User(String nameCompany, String location, String email, String userName, String password, UserType userType) {
+        this.nameCompany = nameCompany;
+        this.location = location;
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.userType = userType;
+    }
 }
 

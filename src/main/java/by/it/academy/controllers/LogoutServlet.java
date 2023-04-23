@@ -6,10 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import static by.it.academy.entities.Constants.*;
 
 @WebServlet(urlPatterns = {"/logout"}, loadOnStartup = 0)
 public class LogoutServlet extends HttpServlet {
-    private static final String INDEX_PAGE = "/index.jsp";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
